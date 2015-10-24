@@ -1,0 +1,36 @@
+{
+  "name": "palette",
+  "main": "palette.js",
+  "version": "0.0.4",
+  "homepage": "https://github.com/lehni/palette.js",
+  "authors": [
+    "Jürg Lehni <juerg@scratchdisk.com>"
+  ],
+  "description": "Insert Elevator Pitch Here.",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "keywords": [
+    "GUI",
+    "palette",
+    "user interface",
+    "simple",
+    "componenets"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "_release": "0.0.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.4",
+    "commit": "0143962a63f26d43f4b1023d456b7016672b857d"
+  },
+  "_source": "git://github.com/lehni/palette.js.git",
+  "_target": "~0.0.4",
+  "_originalSource": "palette"
+}
