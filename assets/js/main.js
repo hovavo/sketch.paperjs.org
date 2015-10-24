@@ -108,6 +108,7 @@ function encode(string) {
 var script = {
 	name: 'Sketch',
 	code: '',
+	path: '',
 	breakpoints: []
 };
 
@@ -130,6 +131,14 @@ function getTimeStamp() {
 function updateHash() {
 	window.location.hash = '#S/' + encode(JSON.stringify(script));
 }
+
+function setCode(code) {
+	script.code = code;
+	updateHash();
+	window.location.reload();
+}
+
+window.setCode = setCode;
 
 if (window.location.hash) {
 	var hash = window.location.hash.substr(1),
@@ -877,6 +886,34 @@ function createPaperScript(element) {
 
 	$('.button.console-clear', element).click(function() {
 		clearConsole();
+	});
+
+	$('.paperscript').on('dragover', function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		$('.paperscript').addClass('drag-over');
+	});
+
+	$('.paperscript').on('dragleave	', function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		$('.paperscript').removeClass('drag-over');
+	});
+
+	$('.paperscript').on('drop', function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+
+		var file = event.originalEvent.dataTransfer.files[0];
+		if (file.type != 'text/javascript')
+			return;
+
+		var reader = new FileReader();
+		reader.onload = function (e) {
+			setCode(reader.result);
+		}
+
+		reader.readAsText(file);
 	});
 }
 

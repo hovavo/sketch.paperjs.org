@@ -267,6 +267,10 @@ img {
 			line-height: 24px;
 		}
 	}
+
+  	&.drag-over {
+	  opacity: 0.2;
+	}
 }
 
 // Tools
