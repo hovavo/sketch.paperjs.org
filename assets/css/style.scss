@@ -1,6 +1,7 @@
 @import "bourbon/bourbon";
 
-@include font-face("Akkurat-Mono", "http://assets.paperjs.org/fonts/akkurat-mono");
+// Akkurat font can't be accessed outside of paperjs.org:
+// @include font-face("Akkurat-Mono", "http://assets.paperjs.org/fonts/akkurat-mono");
 
 body,
 html,

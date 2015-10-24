@@ -1,9 +1,3 @@
-@font-face {
-  font-family: "Akkurat-Mono";
-  font-weight: normal;
-  font-style: normal;
-  src: url("http://assets.paperjs.org/fonts/akkurat-mono.eot");
-  src: url("http://assets.paperjs.org/fonts/akkurat-mono.eot?#iefix") format("embedded-opentype"), url("http://assets.paperjs.org/fonts/akkurat-mono.woff") format("woff"), url("http://assets.paperjs.org/fonts/akkurat-mono.ttf") format("truetype"), url("http://assets.paperjs.org/fonts/akkurat-mono.svg#Akkurat-Mono") format("svg"); }
 body,
 html,
 .paperscript {
