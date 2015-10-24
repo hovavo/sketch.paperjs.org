@@ -9,3 +9,10 @@ Features:
 Todo:
 
 - 'Present' mode (hide left panel)
+- Export html
+
+Stretch:
+
+- Google Drive app
+- Assets library (import svg, images, sound files etc)
+- Native app (node-webkit)
