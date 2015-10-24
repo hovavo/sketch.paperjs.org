@@ -108,7 +108,6 @@ function encode(string) {
 var script = {
 	name: 'Sketch',
 	code: '',
-	path: '',
 	breakpoints: []
 };
 
@@ -137,8 +136,6 @@ function setCode(code) {
 	updateHash();
 	window.location.reload();
 }
-
-window.setCode = setCode;
 
 if (window.location.hash) {
 	var hash = window.location.hash.substr(1),
