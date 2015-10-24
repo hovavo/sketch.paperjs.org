@@ -108,7 +108,6 @@ function encode(string) {
 var script = {
 	name: 'Sketch',
 	code: '',
-	path: '',
 	breakpoints: []
 };
 
@@ -131,14 +130,6 @@ function getTimeStamp() {
 function updateHash() {
 	window.location.hash = '#S/' + encode(JSON.stringify(script));
 }
-
-function setCode(code) {
-	script.code = code;
-	updateHash();
-	window.location.reload();
-}
-
-window.setCode = setCode;
 
 if (window.location.hash) {
 	var hash = window.location.hash.substr(1),
@@ -170,19 +161,17 @@ if (window.location.hash) {
 	}
 }
 
-// Don't load lateset script from localStorage:
-
-//if (!script.code) {
-//	// Support only one script for now, named 'Untitled'. Later on we'll have
-//	// a document switcher.
-//	// Try legacy storage
-//	script.code = localStorage[getScriptId(script)]
-//			// Legacy naming
-//			// TODO: Remove in 2016:
-//			|| localStorage['paperjs_'
-//				+ window.location.pathname.match(/\/([^\/]*)$/)[1]]
-//			|| '';
-//}
+if (!script.code) {
+	// Support only one script for now, named 'Untitled'. Later on we'll have
+	// a document switcher.
+	// Try legacy storage
+	script.code = localStorage[getScriptId(script)]
+			// Legacy naming
+			// TODO: Remove in 2016:
+			|| localStorage['paperjs_'
+				+ window.location.pathname.match(/\/([^\/]*)$/)[1]]
+			|| '';
+}
 
 if (!script.breakpoints)
 	script.breakpoints = [];
@@ -872,7 +861,7 @@ function createPaperScript(element) {
 
 	$('.button.script-download', element).click(function() {
 		this.href = getBlobURL(script.code, 'text/javascript');
-		this.download = script.name + '_' + getTimeStamp() + '.js';
+		this.download = script.name + '.js';
 	});
 
 	$('.button.canvas-clear', element).click(function() {
@@ -908,9 +897,15 @@ function createPaperScript(element) {
 		if (file.type != 'text/javascript')
 			return;
 
+		// Set filename as script name:
+		script.name = file.name.substring(0, file.name.lastIndexOf('.'));
+
 		var reader = new FileReader();
 		reader.onload = function (e) {
-			setCode(reader.result);
+			script.code = reader.result;
+			updateHash();
+			// Reload the page to re-create paperscript:
+			window.location.reload();
 		}
 
 		reader.readAsText(file);
