@@ -462,6 +462,7 @@ function createPaperScript(element) {
 			scope.remove();
 		scope = new PaperScope();
 		setupConsole();
+		clearConsole();
 		extendScope();
 		// parseInclude() triggers evaluateCode() in the right moment for us.
 		parseInclude();
