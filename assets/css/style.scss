@@ -137,6 +137,10 @@ img {
 		.button {
 			float: left;
 		}
+
+		.present & {
+			display: none;
+		}
 	}
 
 	.button {

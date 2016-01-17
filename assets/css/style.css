@@ -88,6 +88,8 @@ img {
   float: right; }
   .paperscript .tools .button {
     float: left; }
+.present .paperscript .tools {
+  display: none; }
 .paperscript .button {
   cursor: pointer; }
   .paperscript .button:hover {

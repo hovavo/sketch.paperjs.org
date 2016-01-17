@@ -808,8 +808,8 @@ function createPaperScript(element) {
 			orientation: pane.attr('data-orientation') == 'hor'
 				? 'vertical'
 				: 'horizontal',
-			position: pane.attr('data-percentage'),
-			limit: 100
+			position: $('body').hasClass('present') ? '0' : pane.attr('data-percentage'),
+			limit: 0
 		});
 	});
 
@@ -915,6 +915,9 @@ function createPaperScript(element) {
 $(function() {
 	if (window.location.search === '?large')
 		$('body').addClass('large');
+	if (window.location.search === '?present')
+		$('body').addClass('present');
+
 	createPaperScript($('.paperscript'));
 });
 
