@@ -1,4 +1,11 @@
 (function() {
+
+// Override paper 0.9.25  / Chrome 55 bug:
+if (!paper.Item.prototype.setRampPoint) {
+	paper.Item.prototype.setRampPoint = function () {};
+}
+
+
 // Settings
 
 var hitTolerance = 4;
